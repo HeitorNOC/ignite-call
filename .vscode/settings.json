@@ -1,0 +1,4 @@
+{
+  "terminal.integrated.confirmOnKill": "editor",
+  "terminal.integrated.defaultLocation": "view"
+}
