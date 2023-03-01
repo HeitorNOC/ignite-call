@@ -6,7 +6,7 @@ import { parseCookies, destroyCookie } from "nookies"
 export function PrismaAdapter(req: NextApiRequest | NextPageContext['req'], res: NextApiResponse | NextPageContext['res']): Adapter {
   return {
     async createUser(user) {
-      const { '@igntecall:userId': userIdOnCookies } = parseCookies({ req })
+      const { '@ignitecall:userId': userIdOnCookies } = parseCookies({ req })
 
       if(!userIdOnCookies) {
         throw new Error('user ID not found on cookies')
@@ -22,7 +22,7 @@ export function PrismaAdapter(req: NextApiRequest | NextPageContext['req'], res:
           avatar_url: user.avatar_url
         }
       })
-      destroyCookie({ res }, '@igntecall:userId', {
+      destroyCookie({ res }, '@ignitecall:userId', {
         path: '/'
       })
       return {
